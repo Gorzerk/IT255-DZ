@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+    <script>
+      $(document).ready(function(){
+        $.ajax({
+          url: "http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo",
+          type: "GET",
+
+          success: function(obj){
+              $("#lng").append("lng: " + obj.geonames[0].lng);
+              $("#geonameID").append("geonameID: " + obj.geonames[0].geonameId);
+          }
+        });
+      });
+    </script>
+  </head>
+
+
+  <body>
+    <div id="lng"></div>
+    <div id="geonameID"></div>
+  </body>
+
+
+</html>
